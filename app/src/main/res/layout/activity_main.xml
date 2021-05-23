@@ -14,14 +14,23 @@
         android:src="@drawable/background" />
 
     <TextView
-        android:id="@+id/tv_result"
-        style="@style/text_view_style"
-        android:text="@string/_0"
-        app:layout_constraintBottom_toTopOf="@id/b_clear"
+        android:id="@+id/tv_history"
+        style="@style/history_text_view_style"
+        app:layout_constraintBottom_toTopOf="@id/tv_result"
         app:layout_constraintEnd_toEndOf="@id/b_minus"
         app:layout_constraintStart_toStartOf="@id/b_clear"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="9999999/" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/text_view_style"
+        app:layout_constraintBottom_toTopOf="@id/b_clear"
+        app:layout_constraintEnd_toEndOf="@id/b_minus"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@id/tv_history"
+        tools:text="99999999" />
 
     <Button
         android:id="@+id/b_clear"
