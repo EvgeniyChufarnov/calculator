@@ -39,4 +39,18 @@ public class UtilTest {
         String result = Util.formatResult(testValue);
         assertEquals("3", result);
     }
+
+    @Test
+    public void formatResult_short_format() {
+        String testValue = "3.9765611862383703E18";
+        String result = Util.formatResult(testValue);
+        assertEquals("3.97656E18", result);
+    }
+
+    @Test
+    public void formatResult_dont_delete() {
+        String testValue = "3.973E10";
+        String result = Util.formatResult(testValue);
+        assertEquals("3.973E10", result);
+    }
 }

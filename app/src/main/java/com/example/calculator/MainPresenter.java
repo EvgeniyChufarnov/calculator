@@ -90,7 +90,7 @@ public class MainPresenter {
     }
 
     public void onOperation(Operation operation) {
-        if (currentNum.length() == 0 || errorIsShown)
+        if (currentNum.length() == 0 && !hasPreviousNumber || errorIsShown)
             return;
 
         if (!hasPreviousNumber) {

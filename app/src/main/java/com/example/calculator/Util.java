@@ -5,6 +5,9 @@ import java.util.Map;
 public class Util {
     private static final String DELETE_ZERO_REGEX = "[0/.]+$";
     private static final String POINT = ".";
+    private static final String POWER_E = "E";
+    private static final int MAX_SIZE = 10;
+    private static final int MAX_SIZE_WITH_POWER = 7;
     public static Map<Integer, String> NUM_BUTTONS = Map.of(
             R.id.b_0, "0",
             R.id.b_1, "1",
@@ -25,10 +28,18 @@ public class Util {
     );
 
     public static String formatResult(String result) {
-        if (result.contains(POINT))
-            return result.replaceAll(DELETE_ZERO_REGEX, "");
-        else {
-            return result;
+        String formattedResult = result;
+
+        if (result.contains(POINT) && !result.contains(POWER_E)) {
+            formattedResult = result.replaceAll(DELETE_ZERO_REGEX, "");
         }
+
+        if (result.contains(POWER_E) && result.length() > MAX_SIZE) {
+            int index_E = result.indexOf(POWER_E);
+            String power = result.substring(index_E);
+            formattedResult = result.substring(0, MAX_SIZE_WITH_POWER) + power;
+        }
+
+        return formattedResult;
     }
 }
