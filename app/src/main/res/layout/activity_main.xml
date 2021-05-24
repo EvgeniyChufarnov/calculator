@@ -6,13 +6,194 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/bg_content_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
+    <TextView
+        android:id="@+id/tv_history"
+        style="@style/history_text_view_style"
+        app:layout_constraintBottom_toTopOf="@id/tv_result"
+        app:layout_constraintEnd_toEndOf="@id/b_minus"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="9999999/" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/text_view_style"
+        app:layout_constraintBottom_toTopOf="@id/b_clear"
+        app:layout_constraintEnd_toEndOf="@id/b_minus"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@id/tv_history"
+        tools:text="99999999" />
+
+    <Button
+        android:id="@+id/b_clear"
+        style="@style/secondary_button_style"
+        android:text="@string/c"
+        app:layout_constraintBottom_toTopOf="@id/b_1"
+        app:layout_constraintEnd_toStartOf="@id/b_cancel_entry"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_result" />
+
+    <Button
+        android:id="@+id/b_cancel_entry"
+        style="@style/secondary_button_style"
+        android:text="@string/ce"
+        app:layout_constraintBottom_toBottomOf="@id/b_clear"
+        app:layout_constraintEnd_toStartOf="@id/b_plus"
+        app:layout_constraintStart_toEndOf="@+id/b_clear"
+        app:layout_constraintTop_toTopOf="@id/b_clear" />
+
+    <Button
+        android:id="@+id/b_plus"
+        style="@style/secondary_button_style"
+        android:text="@string/plus"
+        app:layout_constraintBottom_toBottomOf="@id/b_clear"
+        app:layout_constraintEnd_toStartOf="@id/b_minus"
+        app:layout_constraintStart_toEndOf="@+id/b_cancel_entry"
+        app:layout_constraintTop_toTopOf="@id/b_clear" />
+
+    <Button
+        android:id="@+id/b_minus"
+        style="@style/secondary_button_style"
+        android:text="@string/minus"
+        app:layout_constraintBottom_toBottomOf="@id/b_clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/b_plus"
+        app:layout_constraintTop_toTopOf="@id/b_clear" />
+
+    <Button
+        android:id="@+id/b_1"
+        style="@style/button_style"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toTopOf="@id/b_4"
+        app:layout_constraintEnd_toEndOf="@+id/b_clear"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@id/b_clear" />
+
+    <Button
+        android:id="@+id/b_2"
+        style="@style/button_style"
+        android:text="@string/_2"
+        app:layout_constraintBottom_toBottomOf="@id/b_1"
+        app:layout_constraintEnd_toEndOf="@+id/b_cancel_entry"
+        app:layout_constraintStart_toStartOf="@id/b_cancel_entry"
+        app:layout_constraintTop_toTopOf="@+id/b_1" />
+
+    <Button
+        android:id="@+id/b_3"
+        style="@style/button_style"
+        android:text="@string/_3"
+        app:layout_constraintBottom_toBottomOf="@id/b_1"
+        app:layout_constraintEnd_toEndOf="@+id/b_plus"
+        app:layout_constraintStart_toStartOf="@id/b_plus"
+        app:layout_constraintTop_toTopOf="@+id/b_1" />
+
+    <Button
+        android:id="@+id/b_multiply"
+        style="@style/secondary_button_style"
+        android:text="@string/multiply"
+        app:layout_constraintBottom_toBottomOf="@id/b_1"
+        app:layout_constraintEnd_toEndOf="@+id/b_minus"
+        app:layout_constraintStart_toStartOf="@id/b_minus"
+        app:layout_constraintTop_toTopOf="@+id/b_1" />
+
+    <Button
+        android:id="@+id/b_4"
+        style="@style/button_style"
+        android:text="@string/_4"
+        app:layout_constraintBottom_toTopOf="@id/b_7"
+        app:layout_constraintEnd_toEndOf="@+id/b_clear"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@id/b_1" />
+
+    <Button
+        android:id="@+id/b_5"
+        style="@style/button_style"
+        android:text="@string/_5"
+        app:layout_constraintBottom_toBottomOf="@id/b_4"
+        app:layout_constraintEnd_toEndOf="@+id/b_cancel_entry"
+        app:layout_constraintStart_toStartOf="@id/b_cancel_entry"
+        app:layout_constraintTop_toTopOf="@+id/b_4" />
+
+    <Button
+        android:id="@+id/b_6"
+        style="@style/button_style"
+        android:text="@string/_6"
+        app:layout_constraintBottom_toBottomOf="@id/b_4"
+        app:layout_constraintEnd_toEndOf="@+id/b_plus"
+        app:layout_constraintStart_toStartOf="@id/b_plus"
+        app:layout_constraintTop_toTopOf="@+id/b_4" />
+
+    <Button
+        android:id="@+id/b_divide"
+        style="@style/secondary_button_style"
+        android:text="@string/divide"
+        app:layout_constraintBottom_toBottomOf="@id/b_4"
+        app:layout_constraintEnd_toEndOf="@+id/b_minus"
+        app:layout_constraintStart_toStartOf="@id/b_minus"
+        app:layout_constraintTop_toTopOf="@+id/b_4" />
+
+    <Button
+        android:id="@+id/b_7"
+        style="@style/button_style"
+        android:text="@string/_7"
+        app:layout_constraintBottom_toTopOf="@id/b_0"
+        app:layout_constraintEnd_toEndOf="@+id/b_clear"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@+id/b_4" />
+
+    <Button
+        android:id="@+id/b_8"
+        style="@style/button_style"
+        android:text="@string/_8"
+        app:layout_constraintBottom_toBottomOf="@id/b_7"
+        app:layout_constraintEnd_toEndOf="@+id/b_cancel_entry"
+        app:layout_constraintStart_toStartOf="@id/b_cancel_entry"
+        app:layout_constraintTop_toTopOf="@+id/b_7" />
+
+    <Button
+        android:id="@+id/b_9"
+        style="@style/button_style"
+        android:text="@string/_9"
+        app:layout_constraintBottom_toBottomOf="@id/b_7"
+        app:layout_constraintEnd_toEndOf="@+id/b_plus"
+        app:layout_constraintStart_toStartOf="@id/b_plus"
+        app:layout_constraintTop_toTopOf="@+id/b_7" />
+
+    <Button
+        android:id="@+id/b_equals"
+        style="@style/secondary_button_style"
+        android:layout_height="@dimen/double_button_size"
+        android:text="@string/equals"
+        app:layout_constraintBottom_toBottomOf="@id/b_0"
+        app:layout_constraintEnd_toEndOf="@id/b_minus"
+        app:layout_constraintStart_toStartOf="@+id/b_minus"
+        app:layout_constraintTop_toTopOf="@+id/b_7" />
+
+    <Button
+        android:id="@+id/b_0"
+        style="@style/button_style"
+        android:layout_width="@dimen/double_button_size"
+        android:text="@string/_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/b_cancel_entry"
+        app:layout_constraintStart_toStartOf="@id/b_clear"
+        app:layout_constraintTop_toBottomOf="@id/b_7" />
+
+    <Button
+        android:id="@+id/b_point"
+        style="@style/button_style"
+        android:text="@string/point"
+        app:layout_constraintBottom_toBottomOf="@id/b_0"
+        app:layout_constraintEnd_toEndOf="@+id/b_plus"
+        app:layout_constraintStart_toStartOf="@id/b_plus"
+        app:layout_constraintTop_toTopOf="@id/b_0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

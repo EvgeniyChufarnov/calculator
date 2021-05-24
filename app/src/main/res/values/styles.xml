@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="button_style" parent="Theme.Calculator">
+        <item name="android:layout_width">@dimen/button_size</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:layout_margin">@dimen/main_margin</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:backgroundTint">@color/main_button_colors</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="button_style_land" parent="button_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/land_margin</item>
+    </style>
+
+    <style name="secondary_button_style" parent="button_style">
+        <item name="android:backgroundTint">@color/secondary_button_colors</item>
+    </style>
+
+    <style name="secondary_button_style_land" parent="secondary_button_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/land_margin</item>
+    </style>
+
+    <style name="text_view_style" parent="Theme.Calculator">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/button_size</item>
+        <item name="android:layout_marginBottom">@dimen/main_margin</item>
+        <item name="android:padding">@dimen/text_padding</item>
+        <item name="android:background">@color/primaryColor</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/result_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lines">1</item>
+    </style>
+
+    <style name="text_view_style_land" parent="text_view_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingEnd">@dimen/text_padding</item>
+        <item name="android:paddingStart">@dimen/text_padding</item>
+    </style>
+
+    <style name="history_text_view_style" parent="text_view_style">
+        <item name="android:layout_height">@dimen/half_button_size</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:textSize">@dimen/history_text_size</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="history_text_view_style_land" parent="history_text_view_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:paddingEnd">@dimen/text_padding</item>
+        <item name="android:paddingStart">@dimen/text_padding</item>
+    </style>
+</resources>
