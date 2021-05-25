@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/bg_content_description"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background" />
-
     <TextView
         android:id="@+id/tv_history"
         style="@style/history_text_view_style"
