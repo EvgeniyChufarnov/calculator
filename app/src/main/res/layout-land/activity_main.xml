@@ -164,8 +164,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/b_equals"
         style="@style/secondary_button_style_land"
-        android:layout_height="0dp"
-        android:layout_margin="0dp"
+        android:layout_height="@dimen/equals_button_height"
+        android:layout_margin="@dimen/no_margin"
         android:text="@string/equals"
         app:layout_constraintBottom_toBottomOf="@id/b_0"
         app:layout_constraintEnd_toEndOf="@+id/b_cancel_entry"
