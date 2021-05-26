@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.AppCompatToggleButton
         android:id="@+id/tb_night_theme"
-        style="@style/toggleButton"
+        style="@style/toggle_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

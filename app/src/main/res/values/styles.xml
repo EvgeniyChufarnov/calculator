@@ -30,7 +30,7 @@
         <item name="android:layout_height">@dimen/button_size</item>
         <item name="android:layout_marginBottom">@dimen/main_margin</item>
         <item name="android:padding">@dimen/text_padding</item>
-        <item name="android:background">@color/primaryColor</item>
+        <item name="android:background">@color/primary_color</item>
         <item name="android:textAlignment">textEnd</item>
         <item name="android:textSize">@dimen/result_text_size</item>
         <item name="android:textStyle">bold</item>
@@ -58,7 +58,7 @@
         <item name="android:paddingStart">@dimen/text_padding</item>
     </style>
 
-    <style name="toggleButton">
+    <style name="toggle_button">
         <item name="android:layout_width">@dimen/half_button_size</item>
         <item name="android:layout_height">@dimen/half_button_size</item>
         <item name="android:layout_margin">@dimen/main_margin</item>
