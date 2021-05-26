@@ -3,7 +3,7 @@ package com.example.calculator;
 import java.util.Map;
 
 public class Util {
-    private static final String DELETE_ZERO_REGEX = "[0/.]+$";
+    private static final String DELETE_ZERO_REGEX = "\\.?0*$";
     private static final String POINT = ".";
     private static final String POWER_E = "E";
     private static final int MAX_SIZE = 10;

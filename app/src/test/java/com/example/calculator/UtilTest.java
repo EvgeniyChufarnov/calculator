@@ -53,4 +53,11 @@ public class UtilTest {
         String result = Util.formatResult(testValue);
         assertEquals("3.973E10", result);
     }
+
+    @Test
+    public void formatResult_dont_delete_zero() {
+        String testValue = "100.0";
+        String result = Util.formatResult(testValue);
+        assertEquals("100", result);
+    }
 }
