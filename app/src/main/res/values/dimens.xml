@@ -11,5 +11,8 @@
     <dimen name="result_text_size">42sp</dimen>
     <dimen name="history_text_size">18sp</dimen>
     <dimen name="no_margin">0dp</dimen>
+    <dimen name="no_width">0dp</dimen>
+    <dimen name="no_padding">0dp</dimen>
     <dimen name="equals_button_height">0dp</dimen>
+    <dimen name="buttons_inset">0dp</dimen>
 </resources>
