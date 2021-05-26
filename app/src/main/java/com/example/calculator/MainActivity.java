@@ -1,10 +1,13 @@
 package com.example.calculator;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.calculator.moshi_adapter.StringBuilderJSONAdapter;
 import com.squareup.moshi.JsonAdapter;
@@ -16,6 +19,8 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private static final String PRESENTER = "Presenter";
+    private static final String SHARED_PREFERENCE = "sharedPreference";
+    private static final String IS_NIGHT_THEME = "isNightTheme";
 
     private TextView resultTextView;
     private TextView historyTextView;
@@ -26,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setTheme(isNightTheme());
 
         resultTextView = findViewById(R.id.tv_result);
         historyTextView = findViewById(R.id.tv_history);
@@ -72,6 +79,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
         findViewById(R.id.b_point).setOnClickListener(
                 view -> presenter.addPoint()
         );
+
+        ToggleButton toggleButton = findViewById(R.id.tb_night_theme);
+        toggleButton.setChecked(isNightTheme());
+        toggleButton.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> {
+                    setTheme(isChecked);
+                    setDefaultTheme(isChecked);
+                }
+        );
     }
 
     private void restoreState(String previousState) {
@@ -108,5 +124,25 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onSaveInstanceState(outState);
 
         outState.putString(PRESENTER, jsonAdapter.toJson(presenter));
+    }
+
+    private void setTheme(boolean isNightTheme) {
+        if (isNightTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
+    private boolean isNightTheme() {
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        return sharedPref.getBoolean(IS_NIGHT_THEME, false);
+    }
+
+    private void setDefaultTheme(boolean isNightTheme) {
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putBoolean(IS_NIGHT_THEME, isNightTheme);
+        editor.apply();
     }
 }

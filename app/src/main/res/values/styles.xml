@@ -57,4 +57,14 @@
         <item name="android:paddingEnd">@dimen/text_padding</item>
         <item name="android:paddingStart">@dimen/text_padding</item>
     </style>
+
+    <style name="toggleButton">
+        <item name="android:layout_width">@dimen/half_button_size</item>
+        <item name="android:layout_height">@dimen/half_button_size</item>
+        <item name="android:layout_margin">@dimen/main_margin</item>
+        <item name="android:background">@drawable/ic_toggle_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+        <item name="android:textOn" />
+        <item name="android:textOff" />
+    </style>
 </resources>

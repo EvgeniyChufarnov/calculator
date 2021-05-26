@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.AppCompatToggleButton
+        android:id="@+id/tb_night_theme"
+        style="@style/toggleButton"
+        app:layout_constraintBottom_toTopOf="@id/tv_history"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_history"
         style="@style/history_text_view_style"
