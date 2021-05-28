@@ -26,13 +26,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
     private TextView historyTextView;
     private MainPresenter presenter;
     private JsonAdapter<MainPresenter> jsonAdapter;
+    private boolean isNightTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTheme(isNightTheme());
+        isNightTheme = getDefaultTheme();
+        setNightTheme(isNightTheme);
 
         resultTextView = findViewById(R.id.tv_result);
         historyTextView = findViewById(R.id.tv_history);
@@ -53,38 +55,37 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     private void init() {
         for (Map.Entry<Integer, String> entry : Util.NUM_BUTTONS.entrySet()) {
-            findViewById(entry.getKey()).setOnClickListener(
-                    view -> presenter.onNumClicked(Util.NUM_BUTTONS.get(view.getId()))
+            findViewById(entry.getKey()).setOnClickListener(view ->
+                    presenter.onNumClicked(Util.NUM_BUTTONS.get(view.getId()))
             );
         }
 
         for (Map.Entry<Integer, MainPresenter.Operation> entry : Util.OPERATION_BUTTONS.entrySet()) {
-            findViewById(entry.getKey()).setOnClickListener(
-                    view -> presenter.onOperation(Util.OPERATION_BUTTONS.get(view.getId()))
+            findViewById(entry.getKey()).setOnClickListener(view ->
+                    presenter.onOperation(Util.OPERATION_BUTTONS.get(view.getId()))
             );
         }
 
-        findViewById(R.id.b_cancel_entry).setOnClickListener(
-                view -> presenter.onCancel()
+        findViewById(R.id.b_cancel_entry).setOnClickListener(view ->
+                presenter.onCancel()
         );
 
-        findViewById(R.id.b_clear).setOnClickListener(
-                view -> presenter.onClear()
+        findViewById(R.id.b_clear).setOnClickListener(view ->
+                presenter.onClear()
         );
 
-        findViewById(R.id.b_equals).setOnClickListener(
-                view -> presenter.onCalculate()
+        findViewById(R.id.b_equals).setOnClickListener(view ->
+                presenter.onCalculate()
         );
 
-        findViewById(R.id.b_point).setOnClickListener(
-                view -> presenter.addPoint()
+        findViewById(R.id.b_point).setOnClickListener(view ->
+                presenter.addPoint()
         );
 
         ToggleButton toggleButton = findViewById(R.id.tb_night_theme);
-        toggleButton.setChecked(isNightTheme());
-        toggleButton.setOnCheckedChangeListener(
-                (buttonView, isChecked) -> {
-                    setTheme(isChecked);
+        toggleButton.setChecked(isNightTheme);
+        toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    setNightTheme(isChecked);
                     setDefaultTheme(isChecked);
                 }
         );
@@ -126,23 +127,21 @@ public class MainActivity extends AppCompatActivity implements MainView {
         outState.putString(PRESENTER, jsonAdapter.toJson(presenter));
     }
 
-    private void setTheme(boolean isNightTheme) {
-        if (isNightTheme) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        }
+    private void setNightTheme(boolean isNightTheme) {
+        AppCompatDelegate.setDefaultNightMode(
+                isNightTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO
+        );
     }
 
-    private boolean isNightTheme() {
+    private boolean getDefaultTheme() {
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
         return sharedPref.getBoolean(IS_NIGHT_THEME, false);
     }
 
-    private void setDefaultTheme(boolean isNightTheme) {
+    private void setDefaultTheme(boolean theme) {
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREFERENCE, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean(IS_NIGHT_THEME, isNightTheme);
+        editor.putBoolean(IS_NIGHT_THEME, theme);
         editor.apply();
     }
 }
