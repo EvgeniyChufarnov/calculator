@@ -5,8 +5,8 @@
         <item name="android:layout_width">@dimen/button_size</item>
         <item name="android:layout_height">@dimen/button_size</item>
         <item name="android:layout_margin">@dimen/main_margin</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">@dimen/buttons_inset</item>
+        <item name="android:insetTop">@dimen/buttons_inset</item>
         <item name="android:backgroundTint">@color/main_button_colors</item>
         <item name="android:textSize">@dimen/text_size</item>
     </style>
@@ -26,11 +26,11 @@
     </style>
 
     <style name="text_view_style" parent="Theme.Calculator">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/no_width</item>
         <item name="android:layout_height">@dimen/button_size</item>
         <item name="android:layout_marginBottom">@dimen/main_margin</item>
         <item name="android:padding">@dimen/text_padding</item>
-        <item name="android:background">@color/primaryColor</item>
+        <item name="android:background">@color/primary_color</item>
         <item name="android:textAlignment">textEnd</item>
         <item name="android:textSize">@dimen/result_text_size</item>
         <item name="android:textStyle">bold</item>
@@ -39,22 +39,32 @@
 
     <style name="text_view_style_land" parent="text_view_style">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">0dp</item>
+        <item name="android:padding">@dimen/no_padding</item>
         <item name="android:paddingEnd">@dimen/text_padding</item>
         <item name="android:paddingStart">@dimen/text_padding</item>
     </style>
 
     <style name="history_text_view_style" parent="text_view_style">
         <item name="android:layout_height">@dimen/half_button_size</item>
-        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginBottom">@dimen/no_margin</item>
         <item name="android:textSize">@dimen/history_text_size</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="history_text_view_style_land" parent="history_text_view_style">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">0dp</item>
+        <item name="android:padding">@dimen/no_padding</item>
         <item name="android:paddingEnd">@dimen/text_padding</item>
         <item name="android:paddingStart">@dimen/text_padding</item>
+    </style>
+
+    <style name="toggle_button">
+        <item name="android:layout_width">@dimen/half_button_size</item>
+        <item name="android:layout_height">@dimen/half_button_size</item>
+        <item name="android:layout_margin">@dimen/main_margin</item>
+        <item name="android:background">@drawable/ic_toggle_bg</item>
+        <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
+        <item name="android:textOn" />
+        <item name="android:textOff" />
     </style>
 </resources>
