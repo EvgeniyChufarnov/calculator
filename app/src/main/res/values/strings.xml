@@ -18,4 +18,5 @@
     <string name="equals" translatable="false">=</string>
     <string name="_0" translatable="false">0</string>
     <string name="point" translatable="false">.</string>
+    <string name="background_error">"Не удалось загрузить фон"</string>
 </resources>

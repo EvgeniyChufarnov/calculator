@@ -9,9 +9,9 @@ public class MainPresenter {
     private static final String POINT = ".";
     private static final String ERROR_MESSAGE = "Error";
     @StringBuilderJSON
-    private final StringBuilder currentNum;
+    private StringBuilder currentNum;
     @StringBuilderJSON
-    private final StringBuilder history;
+    private StringBuilder history;
     private transient MainView mainView;
     private Double previousNumber;
     private Operation previousOperation;
@@ -21,12 +21,44 @@ public class MainPresenter {
 
     public MainPresenter(MainView mainView) {
         this.mainView = mainView;
+        initValues();
+    }
+
+    public MainPresenter(MainView mainView, String firstNum, String secondNum, String operation) {
+        this.mainView = mainView;
+        initValues();
+
+        tryToSetDefaultValues(firstNum, secondNum, operation);
+        updateHistory();
+        updateResult();
+    }
+
+    private void initValues() {
         currentNum = new StringBuilder();
         history = new StringBuilder();
         hasPreviousNumber = false;
         previousOperation = Operation.NONE;
         previousNumber = 0.0;
         resultIsShown = false;
+    }
+
+    private void tryToSetDefaultValues(String firstNum, String secondNum, String operation) {
+        try {
+            previousNumber = Double.parseDouble(firstNum);
+            history.append(firstNum);
+            hasPreviousNumber = true;
+
+            Operation defaultOperation = Util.DEFAULT_OPERATION.get(operation);
+
+            if (defaultOperation != null) {
+                previousOperation = defaultOperation;
+                history.append(defaultOperation.sign);
+            }
+
+            Double.parseDouble(secondNum);
+            currentNum.append(secondNum);
+        } catch (NumberFormatException | NullPointerException ignored) {
+        }
     }
 
     public void restoreState(MainView mainView) {

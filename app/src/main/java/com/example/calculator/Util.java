@@ -26,6 +26,12 @@ public class Util {
             R.id.b_divide, MainPresenter.Operation.DIVIDE,
             R.id.b_multiply, MainPresenter.Operation.MULTIPLY
     );
+    public static Map<String, MainPresenter.Operation> DEFAULT_OPERATION = Map.of(
+            "PLUS", MainPresenter.Operation.PLUS,
+            "MINUS", MainPresenter.Operation.MINUS,
+            "MULTIPLY", MainPresenter.Operation.MULTIPLY,
+            "DIVIDE", MainPresenter.Operation.DIVIDE
+    );
 
     public static String formatResult(String result) {
         String formattedResult = result;
