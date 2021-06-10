@@ -9,6 +9,7 @@
         <item name="android:insetTop">@dimen/buttons_inset</item>
         <item name="android:backgroundTint">@color/main_button_colors</item>
         <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:alpha">@dimen/alpha</item>
     </style>
 
     <style name="button_style_land" parent="button_style">
@@ -35,6 +36,7 @@
         <item name="android:textSize">@dimen/result_text_size</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lines">1</item>
+        <item name="android:alpha">@dimen/alpha</item>
     </style>
 
     <style name="text_view_style_land" parent="text_view_style">

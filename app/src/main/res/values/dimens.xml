@@ -15,4 +15,5 @@
     <dimen name="no_padding">0dp</dimen>
     <dimen name="equals_button_height">0dp</dimen>
     <dimen name="buttons_inset">0dp</dimen>
+    <dimen name="alpha">0.75</dimen>
 </resources>
