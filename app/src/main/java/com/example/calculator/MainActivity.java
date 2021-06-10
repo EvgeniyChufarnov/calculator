@@ -59,7 +59,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
         Moshi moshi = new Moshi.Builder().add(new StringBuilderJSONAdapter()).build();
         jsonAdapter = moshi.adapter(MainPresenter.class);
 
-        Bundle initialBundle = getIntent().getExtras();
+        Bundle initialBundle = null;
+        if (getIntent() != null) {
+            initialBundle = getIntent().getExtras();
+        }
 
         if (savedInstanceState == null && checkInitialValues(initialBundle)) {
             setInitialValues(initialBundle);
